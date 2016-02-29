@@ -15,7 +15,7 @@ VALUES
 ;
 
 CREATE TABLE books
-(`isbn` bigint not null unique primary key,
+(`isbn` bigint not null primary key,
 `author` varchar(64),
 `title` varchar(64))
 ;
