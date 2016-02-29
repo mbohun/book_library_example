@@ -19,7 +19,7 @@ public class BooksController {
 	private static final Logger logger = LoggerFactory.getLogger(BooksController.class);
 
 	@Autowired
-	CustomerDao bookDao;
+	BookDao bookDao;
 	
 	@RequestMapping(value = "/books", method = RequestMethod.GET)
 	public String books(Model model) {

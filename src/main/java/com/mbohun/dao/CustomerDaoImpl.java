@@ -32,7 +32,7 @@ public class CustomerDaoImpl implements CustomerDao {
         return result;
 	}
 
-	private static final class CustomerMapper implements RowMapper<User> {
+	private static final class CustomerMapper implements RowMapper<Customer> {
 		public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Customer customer = new Customer();
 			customer.setId(rs.getInt("id"));

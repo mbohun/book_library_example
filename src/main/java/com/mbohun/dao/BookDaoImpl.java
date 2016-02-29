@@ -32,10 +32,10 @@ public class BookDaoImpl implements BookDao {
         return result;
 	}
 
-	private static final class BookMapper implements RowMapper<User> {
+	private static final class BookMapper implements RowMapper<Book> {
 		public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Book book = new Book();
-			book.setIsbn(rs.getInt("isbn"));
+			book.setIsbn(rs.getLong("isbn"));
 			book.setAuthor(rs.getString("author"));
 			book.setTitle(rs.getString("title"));
 			return book;
