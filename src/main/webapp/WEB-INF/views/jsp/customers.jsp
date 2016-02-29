@@ -1,5 +1,3 @@
-
-Markup
 <%@ page session="false"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -22,7 +20,7 @@ Markup
 				</div>
 			</c:if>
 
-			<h1>All Users</h1>
+			<h1>customers</h1>
 
 			<table class="table table-striped">
 				<thead>
