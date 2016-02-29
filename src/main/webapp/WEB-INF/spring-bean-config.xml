@@ -14,14 +14,12 @@
     <bean id="bookDao" class="com.mbohun.dao.BookDaoImpl" >
 		<property name="namedParameterJdbcTemplate" ref="jdbcTemplate" />
 	</bean>
-	
+
+	<bean id="lentBooksDao" class="com.mbohun.dao.LentBooksDaoImpl" >
+		<property name="namedParameterJdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" >
-	    <!-- 
-		<property name="dataSource" ref="dataSource" />
-		 -->
-		 <!-- 
-		 <constructor-arg ref="dbcpDataSource" />
-		  -->
 		<constructor-arg ref="dataSource" />
 	</bean>
 </beans>
