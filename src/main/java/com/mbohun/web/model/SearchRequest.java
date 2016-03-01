@@ -12,15 +12,8 @@ public class SearchRequest {
 		this.id = id;
 	}
 
-	public boolean empty() {
-		if (id == null) {
-			return true;
-		}
-
-		if (id.trim().isEmpty()) {
-			return true;
-		}
-
-		return false;
+	@Override
+	public String toString() {
+		return "SearchRequest [id=" + id + "]";
 	}
 }

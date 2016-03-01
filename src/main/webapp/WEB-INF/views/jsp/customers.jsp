@@ -58,7 +58,7 @@
 						<td>${customer.phone}</td>						
 						<td>${customer.email}</td>
 						<td>
-							<button type="submit" class="btn btn-primary btn-lg" onclick="searchViaAjax(${customer.id});">Search</button>
+							<button type="button" class="btn btn-primary btn-lg" onclick="searchViaAjax(${customer.id});">Search</button>
 						</td>
 					</tr>
 				</c:forEach>
@@ -71,15 +71,17 @@
 <script>
 
  function searchViaAjax(customer_id) {
-		var search = {}
-		search["id"] = customer_id;
+	   	var search = {}
+	    search["id"] = customer_id;
+	
 		$.ajax({
-			type : "POST",
-			contentType : "application/json",
-			url : "${home}getajax",
+	        url : "${home}getajax",
+	        type : "POST",
 			data : JSON.stringify(search),
-			dataType : 'json',
-			timeout : 100000,
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Accept", "application/json");
+                xhr.setRequestHeader("Content-Type", "application/json");
+            },
 			success : function(data) {
 				console.log("SUCCESS: ", data);
 				display(data);

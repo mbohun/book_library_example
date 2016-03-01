@@ -17,7 +17,7 @@
 	<jcl.slf4j.version>1.7.12</jcl.slf4j.version>
 	<jstl.version>1.2</jstl.version>
 	<dbcp.version>2.1</dbcp.version>
-	<jackson.version>2.7.0</jackson.version>
+	<jackson.version>2.6.5</jackson.version>
     </properties>
 
     <dependencies>
