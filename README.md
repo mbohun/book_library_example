@@ -6,6 +6,31 @@
 4. go to http://localhost:8080/library-books-demo/books for the list of books
 5. go to http://localhost:8080/library-books-demo/customers for the list of customers (press the SEARCH button next to customer name to do anAjax query to get the list of books customer has lent)
 
+Use curl to test/trigger errors, and error handling, for example:
+```
+mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":3}' http://localhost:8080/library-books-demo/getajax
+{"msg":"","code":"200","payload":["Tom Sawyer","Moby Dick","Idiot"]}mbohun@linux:~> 
+mbohun@linux:~>
+mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":-55}' http://localhost:8080/library-books-demo/getajax
+{"msg":"Invalid search request!","code":"400","payload":null}mbohun@linux:~> 
+mbohun@linux:~> 
+mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":34}' http://localhost:8080/library-books-demo/getajax
+{"msg":"No results found.","code":"204","payload":null}mbohun@linux:~> 
+mbohun@linux:~> 
+mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":kill}' http://localhost:8080/library-books-demo/getajax
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Error 400 Bad Request</title>
+</head>
+<body><h2>HTTP ERROR 400</h2>
+<p>Problem accessing /library-books-demo/getajax. Reason:
+<pre>    Bad Request</pre></p><hr><i><small>Powered by Jetty://</small></i><hr/>
+
+</body>
+</html>
+```
+
 NOTES:
 
 SQL usedin this example ([SQLFiddle link](http://sqlfiddle.com/#!2/aefe3/2)):

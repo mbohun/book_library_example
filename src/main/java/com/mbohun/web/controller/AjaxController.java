@@ -24,11 +24,33 @@ public class AjaxController {
 	@JsonView(Views.Public.class)
 	@RequestMapping(value = "/getajax", method = RequestMethod.POST)
 	public @ResponseBody AjaxResponse getResult(@RequestBody SearchRequest searchRequest) {
+		final AjaxResponse response = new AjaxResponse();
+		int customerId = -1;
 
-		List<String> payload =
-			lentBooksDao.findByCustomerId(Integer.parseInt(searchRequest.getId()));
+		try {
+			customerId = Integer.parseInt(searchRequest.getId());
+
+		} catch (NumberFormatException nfe) {
+			response.setCode("400");
+			response.setMsg("Invalid search request!");
+			return response;
+		}
+
+		if (customerId < 0) {
+			response.setCode("400");
+			response.setMsg("Invalid search request!");
+			return response;
+		}
+
+		final List<String> payload =
+			lentBooksDao.findByCustomerId(customerId);
  
-		AjaxResponse response = new AjaxResponse();
+		if (payload.size() < 1) {
+			response.setCode("204");
+			response.setMsg("No results found.");
+			return response;
+		}
+
 		response.setCode("200");
 		response.setMsg("");
 		response.setPayload(payload);
