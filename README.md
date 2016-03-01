@@ -16,19 +16,10 @@ mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":-55}'
 mbohun@linux:~> 
 mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":34}' http://localhost:8080/library-books-demo/getajax
 {"msg":"No results found.","code":"204","payload":null}mbohun@linux:~> 
+mbohun@linux:~>
+mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":"kill"}' http://localhost:8080/library-books-demo/getajax
+{"msg":"Invalid search request!","code":"400","payload":null}mbohun@linux:~> 
 mbohun@linux:~> 
-mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":kill}' http://localhost:8080/library-books-demo/getajax
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Error 400 Bad Request</title>
-</head>
-<body><h2>HTTP ERROR 400</h2>
-<p>Problem accessing /library-books-demo/getajax. Reason:
-<pre>    Bad Request</pre></p><hr><i><small>Powered by Jetty://</small></i><hr/>
-
-</body>
-</html>
 ```
 
 Use curl and jq to test the data, for example:
