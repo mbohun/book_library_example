@@ -31,6 +31,20 @@ mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":kill}
 </html>
 ```
 
+Use curl and jq to test the data, for example:
+```
+mbohun@linux:~> curl -s -H "Content-Type: application/json" -X POST -d '{"id":3}' http://localhost:8080/library-books-demo/getajax | jq '.payload'
+[
+  "Tom Sawyer",
+  "Moby Dick",
+  "Idiot"
+]
+mbohun@linux:~> curl -s -H "Content-Type: application/json" -X POST -d '{"id":3}' http://localhost:8080/library-books-demo/getajax | jq '.payload | contains(["Tom Sawyer", "Moby Dick", "Idiot"])'
+true
+mbohun@linux:~> curl -s -H "Content-Type: application/json" -X POST -d '{"id":3}' http://localhost:8080/library-books-demo/getajax | jq '.payload | contains(["A Clockwork Orange"])'
+false
+```
+
 NOTES:
 
 SQL usedin this example ([SQLFiddle link](http://sqlfiddle.com/#!2/aefe3/2)):
