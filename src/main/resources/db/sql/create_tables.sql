@@ -17,7 +17,8 @@ VALUES
 CREATE TABLE books
 (`isbn` bigint not null primary key,
 `author` varchar(64),
-`title` varchar(64))
+`title` varchar(64),
+constraint uc_isbn unique (isbn))
 ;
 
 INSERT INTO books
