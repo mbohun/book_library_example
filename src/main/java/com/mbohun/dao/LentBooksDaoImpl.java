@@ -22,13 +22,12 @@ public class LentBooksDaoImpl implements LentBooksDao {
 	}
 
 	@Override
-	public List<String> findByCustomerId(Integer customerId) {
+	public List<String> findByCustomerId(int customerId) {
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("customer_id", customerId);
 		
 		String sql =
-			"SELECT title FROM books b, lent_books p WHERE p.customer_id=:customer_id and b.isbn = p.isbn_id";
-
+			"SELECT title FROM books b, lent_books p WHERE p.customer_id=" + customerId + " and b.isbn = p.isbn_id";
+ 
 		List<String> result = namedParameterJdbcTemplate.query(sql, params, new BookTitleMapper());
         return result;
 	}

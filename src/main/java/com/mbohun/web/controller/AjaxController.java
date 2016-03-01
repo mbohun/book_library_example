@@ -11,17 +11,22 @@ import com.mbohun.web.jsonview.Views;
 import com.mbohun.web.model.SearchRequest;
 import com.mbohun.web.model.AjaxResponse;
 
-import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.mbohun.dao.LentBooksDao;
+import java.util.List;
 
 @RestController
 public class AjaxController {
 
+	@Autowired
+	LentBooksDao lentBooksDao;
+
 	@JsonView(Views.Public.class)
 	@RequestMapping(value = "/getajax", method = RequestMethod.POST)
 	public @ResponseBody AjaxResponse getResult(@RequestBody SearchRequest searchRequest) {
-		System.out.println(">>>>>>>>>>>>>>>>" + searchRequest);
-		ArrayList<String> payload = new ArrayList<String>();
-		payload.add("test book title");
+
+		List<String> payload =
+			lentBooksDao.findByCustomerId(Integer.parseInt(searchRequest.getId()));
  
 		AjaxResponse response = new AjaxResponse();
 		response.setCode("200");
