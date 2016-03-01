@@ -4,7 +4,7 @@
 2. cd book_library_example
 3. mvn jetty:run
 4. go to http://localhost:8080/library-books-demo/books for the list of books
-5. go to http://localhost:8080/library-books-demo/customers for the list of customers (press the SEARCH button next to customer name to do anAjax query to get the list of books customer has lent **broken/fixing now**)
+5. go to http://localhost:8080/library-books-demo/customers for the list of customers (press the SEARCH button next to customer name to do anAjax query to get the list of books customer has lent)
 
 NOTES:
 
