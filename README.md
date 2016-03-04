@@ -1,6 +1,6 @@
 ###book_library_example [![Build Status](https://travis-ci.org/mbohun/book_library_example.svg?branch=master)](https://travis-ci.org/mbohun/book_library_example)
 
-Description: [Programming Exercise](issues#1)
+Description: [Programming Exercise](https://github.com/mbohun/book_library_example/issues/1)
 
 1. git clone https://github.com/mbohun/book_library_example.git
 2. cd book_library_example
