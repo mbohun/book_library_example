@@ -1,10 +1,12 @@
 ###book_library_example [![Build Status](https://travis-ci.org/mbohun/book_library_example.svg?branch=master)](https://travis-ci.org/mbohun/book_library_example)
 
+Description: Programming Exercise #1
+
 1. git clone https://github.com/mbohun/book_library_example.git
 2. cd book_library_example
 3. mvn jetty:run
-4. go to http://localhost:8080/library-books-demo/books for the list of books
-5. go to http://localhost:8080/library-books-demo/customers for the list of customers (press the SEARCH button next to customer name to do anAjax query to get the list of books customer has lent)
+4. go to [http://localhost:8080/library-books-demo/books](http://localhost:8080/library-books-demo/books) for the list of books
+5. go to [http://localhost:8080/library-books-demo/customers](http://localhost:8080/library-books-demo/customers) for the list of customers (press the SEARCH button next to customer name to do anAjax query to get the list of books customer has lent)
 
 Use curl to test/trigger errors, and error handling, for example:
 ```
@@ -24,15 +26,20 @@ mbohun@linux:~>
 
 Use curl and jq to test the data, for example:
 ```
-mbohun@linux:~> curl -s -H "Content-Type: application/json" -X POST -d '{"id":3}' http://localhost:8080/library-books-demo/getajax | jq '.payload'
+mbohun@linux:~> curl -s -H "Content-Type: application/json" -X POST -d '{"id":3}' http://localhost:8080/library-books-demo/getajax \
+   | jq '.payload'
 [
   "Tom Sawyer",
   "Moby Dick",
   "Idiot"
 ]
-mbohun@linux:~> curl -s -H "Content-Type: application/json" -X POST -d '{"id":3}' http://localhost:8080/library-books-demo/getajax | jq '.payload | contains(["Tom Sawyer", "Moby Dick", "Idiot"])'
+
+mbohun@linux:~> curl -s -H "Content-Type: application/json" -X POST -d '{"id":3}' http://localhost:8080/library-books-demo/getajax \
+   | jq '.payload | contains(["Tom Sawyer", "Moby Dick", "Idiot"])'
 true
-mbohun@linux:~> curl -s -H "Content-Type: application/json" -X POST -d '{"id":3}' http://localhost:8080/library-books-demo/getajax | jq '.payload | contains(["A Clockwork Orange"])'
+
+mbohun@linux:~> curl -s -H "Content-Type: application/json" -X POST -d '{"id":3}' http://localhost:8080/library-books-demo/getajax \
+   | jq '.payload | contains(["A Clockwork Orange"])'
 false
 ```
 
