@@ -24,7 +24,7 @@ mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":"kill
 mbohun@linux:~> 
 ```
 
-Use curl and jq to test the data, for example:
+Use curl and [jq](https://stedolan.github.io/jq) to test the data, for example:
 ```
 mbohun@linux:~> curl -s -H "Content-Type: application/json" -X POST -d '{"id":3}' http://localhost:8080/library-books-demo/getajax \
    | jq '.payload'
