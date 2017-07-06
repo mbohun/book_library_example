@@ -11,17 +11,16 @@ Description: [Programming Exercise](https://github.com/mbohun/book_library_examp
 Use curl to test/trigger errors, and error handling, for example:
 ```
 mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":3}' http://localhost:8080/library-books-demo/getajax
-{"msg":"","code":"200","payload":["Tom Sawyer","Moby Dick","Idiot"]}mbohun@linux:~> 
-mbohun@linux:~>
+{"msg":"","code":"200","payload":["Tom Sawyer","Moby Dick","Idiot"]}
+
 mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":-55}' http://localhost:8080/library-books-demo/getajax
-{"msg":"Invalid search request!","code":"400","payload":null}mbohun@linux:~> 
-mbohun@linux:~> 
+{"msg":"Invalid search request!","code":"400","payload":null}
+
 mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":34}' http://localhost:8080/library-books-demo/getajax
-{"msg":"No results found.","code":"204","payload":null}mbohun@linux:~> 
-mbohun@linux:~>
+{"msg":"No results found.","code":"204","payload":null}
+
 mbohun@linux:~> curl -H "Content-Type: application/json" -X POST -d '{"id":"kill"}' http://localhost:8080/library-books-demo/getajax
-{"msg":"Invalid search request!","code":"400","payload":null}mbohun@linux:~> 
-mbohun@linux:~> 
+{"msg":"Invalid search request!","code":"400","payload":null}
 ```
 
 Use curl and [jq](https://stedolan.github.io/jq) to test the data, for example:
